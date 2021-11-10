@@ -23,7 +23,7 @@ const NewTicket = () => {
     const onBlur = () => {
         const value = parseFloat(price)
 
-        if(NaN(value)){
+        if(isNaN(value)){
             return;
         }
 

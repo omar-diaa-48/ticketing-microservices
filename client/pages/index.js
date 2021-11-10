@@ -1,4 +1,27 @@
-const LandingPage = ({ currentUser }) => {
+const LandingPage = ({ currentUser, tickets }) => {
+  
+  return (
+    <div>
+      <h1>Tickets</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tickets.map(ticket => (
+            <tr key={ticket.id} >
+                <td>{ticket.title}</td>
+                <td>{ticket.price}</td>
+            </tr>
+            ))}
+        </tbody>
+      </table>
+    </div>
+  )
+
   return currentUser ? (
     <h1>You are signed in</h1>
   ) : (
@@ -7,7 +30,11 @@ const LandingPage = ({ currentUser }) => {
 };
 
 LandingPage.getInitialProps = async (context, client, currentUser) => {
-  return {}
+  const {data} = await client.get('/api/tickets');
+
+  return {
+    tickets:data
+  }
 };
 
 export default LandingPage;
