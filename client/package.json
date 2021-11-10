@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next"
+    "dev": "export NODE_OPTIONS=--openssl-legacy-provider; next"
   },
   "keywords": [],
   "author": "",
