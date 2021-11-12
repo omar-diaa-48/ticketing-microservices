@@ -4,11 +4,11 @@ import request from 'supertest';
 import { app } from '../app';
 
 declare global {
-  namespace NodeJS {
-    interface Global {
-      signin(): Promise<string[]>;
-    }
-  }
+  // namespace NodeJS {
+    // interface Global {
+      function signin(): Promise<string[]>;
+    // }
+  // }
 }
 
 let mongo: any;
